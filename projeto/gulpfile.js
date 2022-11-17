@@ -10,18 +10,18 @@ const clean = require('gulp-clean')
 const babel = require('gulp-babel')
 const browserSync = require('browser-sync').create()
 const reload = browserSync.reload
+const sass = require('gulp-sass')(require('node-sass'))
 
 function tarefaCSS(cb){
     gulp.src([ 
     './node_modules/bootstrap/dist/css/bootstrap.css',
    './vendor/owl/dist/assets/owl.carousel.css' ,
    './vendor/jquery-ui-1.13.2.custom/jquery-ui.css',
-   './node_modules/@fortawesome/fontawesome-free/css/fontawesome.css',
-    './src/css/style.css'                              ])//mudou o caminho do diretório
+   './node_modules/@fortawesome/fontawesome-free/css/fontawesome.css'                              ])//mudou o caminho do diretório
 
-        .pipe(concat('styles.css'))//mescla arquivos
+        .pipe(concat('libs.css'))//mescla arquivos
         .pipe(cssmin())//minifica css
-        .pipe(rename({suffix:'.min'}))//styles.min.css
+        .pipe(rename({suffix:'.min'}))//libs.min.css
         .pipe(gulp.dest('./dist/css'))//metodos que fazem o tratamento de gulp, precisa passar o parâmetro
      cb()    
 
@@ -69,6 +69,14 @@ function tarefaHTML(callback){
     return callback()// permite realizar várias tarefas em cascata
 }
 
+function tarefaSASS(cb){
+    gulp.src('./src/scss/**/*.scss')
+    .pipe(sass())//transforma sass para css
+    .pipe(gulp.dest('./dist/css'))
+    cb()
+}
+
+
 gulp.task('server',function(){
     browserSync.init({
         server:{
@@ -81,7 +89,8 @@ gulp.task('server',function(){
 
 })
 
-
+exports.html = tarefaHTML
+exports.sass = tarefaSASS
 exports.styles = tarefaCSS
 exports.scripts = tarefaJS
 exports.imagens = tarefaImagem 

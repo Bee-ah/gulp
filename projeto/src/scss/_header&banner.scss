@@ -1,0 +1,129 @@
+@import 'vars';
+
+.section-heading {
+	margin-top: 80px;
+	margin-bottom: 40px;
+	.line-dec{
+		width: 30px;
+		height: 5px;
+		background-color: $color-01;
+	}
+	h1{
+		font-size: 22px;
+		font-weight: 700;
+		color: $color-03;
+		margin-top: 15px;
+	}
+}
+
+
+/* Pre Header Style */
+#pre-header {
+	background-color: $color-01;
+	text-align: center;
+	span{
+		color: $color-02;
+		font-size: $font-normal;
+		padding: 10px 0px;
+		display: inline-block;
+	}
+}
+
+
+/* Header Style */
+.navbar .navbar-brand {
+	text-align: center;
+	width: 100%;
+	position: relative;
+	padding: 25px 0px;
+}
+.bg-dark {
+	background-color: $color-02 !important;
+	border-bottom: 1px solid $color-04;
+}
+#navbarResponsive {
+	z-index: 999;
+	position: absolute;
+	left: 50%;
+	top: 125px;
+	transform: translateX(-50%);
+}
+.navbar-dark .navbar-nav .nav-item {
+	margin: 0px 15px;
+}
+.navbar-dark .navbar-nav .nav-link {
+	text-transform: uppercase;
+	font-size: $font-normal;
+	font-weight: 700;
+	color: $color-03;
+	transition: all 0.5s;
+}
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show>.nav-link {
+	color: $color-01;
+}
+.navbar:after {
+	width: 100%;
+	height: 1px;
+	background-color: $color-04;
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -52px;
+}
+.navbar-dark  {
+	.navbar-toggler {
+		border-color: $color-01;
+		background-color: $color-01;
+		height: 50px;
+		outline: none;
+		&:after{
+			content: '\f0c9';
+			color: $color-02;
+			font-size: 22px;
+			line-height: 30px;
+			font-family: 'FontAwesome';
+		}
+	}
+	.navbar-toggler-icon{
+		background-image: none;
+	}
+	
+}
+
+
+/* Banner Style */
+.banner {
+	margin-top: 50px;
+	background-image: url(../images/banner-bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 150px 0px;
+	background-position: center center;
+	.caption{
+		background-color: rgba(250,250,250,0.9);
+		padding: 30px;
+		max-width: 450px;
+
+		h2{
+			margin-top: 0px;
+			margin-bottom: 15px;
+			font-size: 24px;
+			font-weight: 700;
+			color: $color-03;
+		}
+		.line-dec{
+			width: 30px;
+			height: 5px;
+			background-color: $color-01;
+		}
+		 p{
+			margin-top: 15px;
+			margin-bottom: 20px;
+		 }
+	}
+
+}
